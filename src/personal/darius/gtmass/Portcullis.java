@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class Cutaway extends JFrame {
+public class Portcullis extends JFrame {
 
 	/**
 	 * 
@@ -33,7 +33,7 @@ public class Cutaway extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Cutaway frame = new Cutaway();
+					Portcullis frame = new Portcullis();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null); frame.setResizable(false);
 					
@@ -47,8 +47,8 @@ public class Cutaway extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Cutaway() {
-		setTitle("Growtopia Mass - Cutaway");
+	public Portcullis() {
+		setTitle("Growtopia Mass - Portcullis");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 344);
 		contentPane = new JPanel();
@@ -56,7 +56,7 @@ public class Cutaway extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblCutaway = new JLabel("Cutaway");
+		JLabel lblCutaway = new JLabel("Portcullis");
 		lblCutaway.setBounds(10, 35, 63, 14);
 		contentPane.add(lblCutaway);
 		
@@ -87,7 +87,7 @@ public class Cutaway extends JFrame {
 		
 		JLabel lblCosts = new JLabel("Costs :");
 		lblCosts.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		lblCosts.setBounds(206, 159, 167, 27);
+		lblCosts.setBounds(206, 159, 207, 27);
 		
 		
 		contentPane.add(lblCosts);
@@ -144,9 +144,8 @@ public class Cutaway extends JFrame {
 		contentPane.add(separator_4);
 		
 		JLabel lblNewLabel_2 = new JLabel("0");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		lblNewLabel_2.setBounds(206, 213, 207, 38);
+		lblNewLabel_2.setBounds(260, 213, 153, 38);
 		contentPane.add(lblNewLabel_2);
 		
 		JButton button = new JButton("< Back");
@@ -174,8 +173,18 @@ public class Cutaway extends JFrame {
 		lblBrick.setVisible(false);
 		contentPane.add(lblBrick);
 		
+		JLabel lblLa = new JLabel("La:");
+		lblLa.setBounds(216, 96, 199, 14);
+		contentPane.add(lblLa);
+		
+		JLabel lblLe = new JLabel("Le:");
+		lblLe.setBounds(216, 110, 197, 14);
+		contentPane.add(lblLe);
+		
 		label_1.setVisible(false);
 		lblNewLabel_2.setVisible(false);
+		lblLe.setVisible(false);
+		lblLa.setVisible(false);
 		
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -196,7 +205,7 @@ public class Cutaway extends JFrame {
 				tfg = textField.getText();
 			    tfc = textField.getText();
 				if(textField.getText().toString().equals("0") || textField.getText().toString().equals("") || textField.getText().toString().equals(" ") || textField.getText().toString().matches("[a-zA-Z]+")) {
-					JOptionPane.showMessageDialog(Cutaway.this,
+					JOptionPane.showMessageDialog(Portcullis.this,
 						    "Tree Amount Should Be 1 or More",
 						    "Invalid Tree Amount",
 						    JOptionPane.ERROR_MESSAGE);
@@ -206,7 +215,7 @@ public class Cutaway extends JFrame {
 						
 						int tfgg = Integer.parseInt(tfc.trim());
 						// S TC
-				        int trcs = tfgg * 4;                 
+				        int trcs = tfgg * 5;                 
 				        double trcp = 1.0 / 100;                
 				        int trcc = (int) (trcp * trcs);
 				        lblNewLabel.setText("Door: " + trcs);
@@ -214,33 +223,45 @@ public class Cutaway extends JFrame {
 				        // E TC
 				        
 				        // S Ice
-				        int ices = tfgg * 2;                 
-				        double icesz = 1.0 / 40.0;                
+				        int ices = tfgg * 3;                 
+				        double icesz = 1.0 / 50.0;                
 				        int icess = (int) (ices * icesz);
-				        lblNewLabel_1.setText("Window: " + ices);
+				        lblNewLabel_1.setText("Rock: " + ices);
 				        lblNewLabel_1.setVisible(true);
 				        // E Ice
 				        
 				        // S Dirt
-				        int dirts = tfgg * 2;                 
-				        double dirz = 1.0 / 100.0;                
+				        int dirts = tfgg * 3;                 
+				        double dirz = 1.0 / 400.0;                
 				        int dorts = (int) (dirts * dirz);
-				        lblNewLabel_3.setText("Gargabe: " + dirts);
+				        lblNewLabel_3.setText("Cave Bg: " + dirts);
 				        lblNewLabel_3.setVisible(true);
 				        // E Brick
 				        
-				        int bricks = tfgg;                 
+				        int bricks = tfgg * 2;            
 				        double bri = 1.0 / 100.0;                
 				        int brieck = (int) (bricks * bri);
-				        lblBrick.setText("Sand: " + bricks);
+				        lblBrick.setText("Lava: " + bricks);
 				        lblBrick.setVisible(true);
+				        
+				        int bg = tfgg * 2;                 
+						double bgri = 1.0 / 200.0;                
+						int brtt = (int) (bg * bgri);
+						lblLe.setText("Rock Bg: " + bg);
+						lblLe.setVisible(true);
+						        
+						int wn = tfgg * 3;                 
+						double win = 1.0 / 40.0;                
+						int wnn = (int) (wn * win);
+						lblLa.setText("Window: " + wn);
+						lblLa.setVisible(true);
 				        
 				        lblNewLabel_2.setVisible(true);
 				        System.out.println("Hay" + brieck + " " + dorts +  "" + trcc + " " + icess);
-				        lblNewLabel_2.setText(String.valueOf(brieck + dorts + trcc + icess));
+				        lblNewLabel_2.setText(String.valueOf(brieck + dorts + trcc + icess + wnn + brtt));
 				        label_1.setVisible(true);
 				        
-				        double x = (35.0 / 100.0) * tfgg;
+				        double x = (30.0 / 100.0) * tfgg;
 				        int y = (int) (tfgg - x);
 				        
 				        label_1.setText(String.valueOf(tfgg - y));

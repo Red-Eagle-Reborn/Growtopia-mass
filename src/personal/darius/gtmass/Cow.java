@@ -33,6 +33,7 @@ public class Cow extends JFrame {
 				try {
 					Cow frame = new Cow();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,8 +52,9 @@ public class Cow extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setResizable(false);
 		
-		JLabel lblCutaway = new JLabel("Cutaway");
+		JLabel lblCutaway = new JLabel("Cow");
 		lblCutaway.setBounds(10, 35, 63, 14);
 		contentPane.add(lblCutaway);
 		
@@ -72,8 +74,9 @@ public class Cow extends JFrame {
 		contentPane.add(lblSeedLoss);
 		
 		JLabel label_1 = new JLabel("0%");
+		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		label_1.setBounds(83, 190, 101, 84);
+		label_1.setBounds(20, 190, 164, 84);
 		contentPane.add(label_1);
 		
 		JLabel lblItemNeeded = new JLabel("Item Needed :");
@@ -139,8 +142,9 @@ public class Cow extends JFrame {
 		contentPane.add(separator_4);
 		
 		JLabel lblNewLabel_2 = new JLabel("0");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		lblNewLabel_2.setBounds(260, 213, 63, 38);
+		lblNewLabel_2.setBounds(206, 213, 201, 38);
 		contentPane.add(lblNewLabel_2);
 		
 		JButton button = new JButton("< Back");
@@ -170,6 +174,16 @@ public class Cow extends JFrame {
 		
 		label_1.setVisible(false);
 		lblNewLabel_2.setVisible(false);
+		
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Main mains = new Main();
+				mains.setVisible(true);
+				mains.setLocationRelativeTo(null);
+				mains.setResizable(false);
+			}
+		});
 		
 		button_1.addActionListener(new ActionListener() {
 			
@@ -224,10 +238,10 @@ public class Cow extends JFrame {
 				        lblNewLabel_2.setText(String.valueOf(brieck + dorts + trcc + icess));
 				        label_1.setVisible(true);
 				        
-				        double x = (10.0 / 100.0) * tfgg;
-				        int y = (int) (tfgg - x);
+				       // double x = (10.0 / 100.0) * tfgg;
+				        //int y = (int) (tfgg - x);
 				        
-				        label_1.setText(String.valueOf(y));
+				        label_1.setText(String.valueOf("10%"));
                    } catch (NumberFormatException se) {
 
                    }
